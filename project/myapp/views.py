@@ -90,4 +90,5 @@ class LoginView(APIView):
                             status=status.HTTP_400_BAD_REQUEST)
 
 class UserCreate(generics.CreateAPIView):
+    permission_classes = ()
     serializer_class = UserSerializer
