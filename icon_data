@@ -1,0 +1,23 @@
+INSERT INTO public.myapp_icon(
+	 title, path)
+	VALUES ( 'Здание', 'static/assets/house.png');
+	
+INSERT INTO public.myapp_icon(
+	 title, path)
+	VALUES ( 'Еда', 'static/assets/cafe.png');
+	
+INSERT INTO public.myapp_icon(
+	 title, path)
+	VALUES ( 'Площадь', 'static/assets/area.png');
+	
+INSERT INTO public.myapp_icon(
+	 title, path)
+	VALUES ( 'Парк', 'static/assets/park.png');
+
+INSERT INTO public.myapp_icon(
+	 title, path)
+	VALUES ( 'Магазин', 'static/assets/shop.png');
+	
+INSERT INTO public.myapp_icon(
+	 title, path)
+	VALUES ( 'Образование', 'static/assets/university.png');

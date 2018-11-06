@@ -298,8 +298,9 @@ define(['marionette', 'collections', 'iconSelect', 'msgView'],
                     image: image
                 });
                 //debugger
-                this.options.map.addPoint(this.iconFeature);
                 this.iconFeature.setStyle(iconStyle);
+                this.options.map.addPoint(this.iconFeature);
+
 
             },
             //

@@ -68,7 +68,7 @@ define(['marionette', 'cookie', 'mainView', 'mapView'],
                 },
                 state: 'login',
                 initialize(app) {
-                    alert('login view')
+                   // alert('login view')
                     this.app = app
 
                 },

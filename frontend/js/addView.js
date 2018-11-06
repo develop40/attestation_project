@@ -87,7 +87,7 @@ define(['marionette', 'models', 'collections', 'iconSelect'],
                     this.newModel.set('point', point);
                 }
 
-                debugger
+              //  debugger
                 this.newModel.set('icon', +this.getChildView('iconRegion').el.value);
 
 
