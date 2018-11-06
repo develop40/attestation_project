@@ -243,6 +243,7 @@ define(['marionette', 'collections', 'iconSelect', 'msgView'],
 
             delMarker() {
                 this.model.destroy({wait: true});
+                this.options.map.vectorSource.removeFeature(this.iconFeature);
                 //this.model.clear();
                 //this.model.destroy();
             },
