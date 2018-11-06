@@ -1,8 +1,10 @@
-define(['marionette', 'models', 'collections', 'iconSelect'],
-    function (Marionette, Models, Collections, IconListView) {
+define(['marionette', 'models', 'collections', 'iconSelect', 'msgView'],
+    function (Marionette, Models, Collections, IconListView, MessageView) {
 
         var AddFormView = Marionette.View.extend({
-            template: _.template(` <form class="form-add">
+            template: _.template(`
+    <div id="msg-region"></div> 
+    <form class="form-add">
         <div class="card-header">
             <div class="card-buttons">
                 <button class="card-btn" id="btn-close">
@@ -36,7 +38,8 @@ define(['marionette', 'models', 'collections', 'iconSelect'],
             className:'card',
 
             regions: {
-                'iconRegion': '#select-region'
+                'iconRegion': '#select-region',
+                'msgRegion': '#msg-region'
             },
 
             events: {
@@ -90,9 +93,16 @@ define(['marionette', 'models', 'collections', 'iconSelect'],
               //  debugger
                 this.newModel.set('icon', +this.getChildView('iconRegion').el.value);
 
-
+                let that= this;
                 this.newModel.save({wait: true}, {
                     success: function () {
+                    },
+                    complete: function (xhr) {
+                        debugger
+                        if (xhr.status !== 200){
+                            that.showChildView('msgRegion', new MessageView('Заполните все поля и попробуйте снова!'))
+                        }
+                        //поместить окно с ошибкой
                     }
                 });
             },
