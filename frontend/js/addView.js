@@ -98,7 +98,7 @@ define(['marionette', 'models', 'collections', 'iconSelect', 'msgView'],
                     success: function () {
                     },
                     complete: function (xhr) {
-                        debugger
+                        //debugger
                         if (xhr.status !== 200){
                             that.showChildView('msgRegion', new MessageView('Заполните все поля и попробуйте снова!'))
                         }
