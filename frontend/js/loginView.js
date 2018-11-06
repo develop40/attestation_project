@@ -25,6 +25,7 @@ define(['marionette', 'cookie', 'mainView', 'mapView'],
         var registerTemplate = _.template(`
                     <div id="map-region"></div>
                     <div class="background-placeholder"></div>
+                    <div class="center-div">
                     <div id="loginview-root" class="longer">
                         <div class="card-header">
                             <h3>Регистрация</h3>
@@ -38,6 +39,7 @@ define(['marionette', 'cookie', 'mainView', 'mapView'],
                              </form>
                              <div class="card-footer">
                                 <a href=''  id="tologin">Уже зарегистрированы?</a>
+                            </div>
                             </div>
                         </div>
                     </div>`
