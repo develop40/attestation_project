@@ -1,32 +1,8 @@
-define(['marionette', 'models', 'collections', 'iconSelect', 'msgView'],
-    function (Marionette, Models, Collections, IconListView, MessageView) {
+define(['marionette', 'models', 'collections', 'iconSelect', 'msgView', 'tpl!templates/addView.tpl'],
+    function (Marionette, Models, Collections, IconListView, MessageView, addViewTpl) {
 
         var AddFormView = Marionette.View.extend({
-            template: _.template(`
-    <div id="msg-region"></div> 
-    <form class="form-add">
-        <div class="card-header">
-            <div class="card-buttons">
-                <button class="card-btn" id="btn-close">
-                    <!--<span class="card-btn-img" id='delete-btn'>&#10006</span>-->
-                    <img class="card-btn-img" src="http://defaulticon.com/images/icons32x32/cancel.png?itok=vIT63GD3">
-                </button>
-            </div>
-        </div>
-        <div class="card-body">
-            <label>Название</label>
-                <br><input required type="text" id="name-marker">
-            <label>Описание</label>
-                <br><input required type="text" id="description-marker">
-            <label>Координаты</label>
-                <br><input required type="text" id="coordinates-marker">
-            <label>Тип</label>
-            <div class="styled-select" id="select-region"></div>
-            </p>
-            <p><input type="button" id="save-btn" value=Сохранить>
-        </div>
-        
-    </form>`),
+            template: addViewTpl,
 
 
             initialize: function (collection, mapView) {
@@ -35,7 +11,7 @@ define(['marionette', 'models', 'collections', 'iconSelect', 'msgView'],
                 this.listenTo(this.newModel, 'sync', this.addModel);
                 this.mapView = mapView;
             },
-            className:'card',
+            className: 'card',
 
             regions: {
                 'iconRegion': '#select-region',
@@ -59,7 +35,7 @@ define(['marionette', 'models', 'collections', 'iconSelect', 'msgView'],
                 e.preventDefault();
                 this.destroy();
             },
-            onDestroy(){
+            onDestroy() {
                 this.mapView.map.un('click', this.getCoords);
                 this.mapView.clearNewPoint();
             },
@@ -90,19 +66,16 @@ define(['marionette', 'models', 'collections', 'iconSelect', 'msgView'],
                     this.newModel.set('point', point);
                 }
 
-              //  debugger
                 this.newModel.set('icon', +this.getChildView('iconRegion').el.value);
 
-                let that= this;
+                let that = this;
                 this.newModel.save({wait: true}, {
                     success: function () {
                     },
                     complete: function (xhr) {
-                        //debugger
-                        if (xhr.status !== 201){
+                        if (xhr.status !== 201) {
                             that.showChildView('msgRegion', new MessageView('Заполните все поля и попробуйте снова!'))
                         }
-                        //поместить окно с ошибкой
                     }
                 });
             },
@@ -113,14 +86,14 @@ define(['marionette', 'models', 'collections', 'iconSelect', 'msgView'],
                 let that = this;
                 this.iconCol.fetch({
                     success: function f() {
-                        //  debugger
+
                         let iconView = new IconListView(that.iconCol);
                         that.showChildView('iconRegion', iconView);
                         //that.triggerMethod('add:marker', that);
                     }
                 });
                 this.getCoords = function (evt) {
-                    // debugger
+
                     that.ui.inputCoords.val(this.getControls().array_[3].element.outerText);
                     console.log(this.getControls().array_[3].element.outerText)
                     console.log(evt.coordinate)

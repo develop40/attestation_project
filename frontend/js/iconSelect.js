@@ -8,16 +8,11 @@ define(['marionette', 'collections'], function (Marionette, Collections) {
             },
 
             'selected': function () {
-                //debugger
                 if(IconView.arguments['0'].selectedId===IconView.arguments['0'].model.attributes.id) {return true;}
                 return false;
             }
         },
-        template: _.template(`<%= title %>`),
-
-        onRender(){
-            //debugger
-        }
+        template: _.template(`<%= title %>`)
     });
 
     var IconListView = Marionette.CollectionView.extend({
@@ -35,12 +30,6 @@ define(['marionette', 'collections'], function (Marionette, Collections) {
         },
         childViewOptions(model){
             return {selectedId: this.selectedId}
-        },
-        onRender(){
-
-        },
-
-        onDestroy(){
         }
     });
 

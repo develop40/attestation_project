@@ -50,7 +50,6 @@ define(['marionette', 'ol'],
                         source: this.vectorSource,
                         // declutter: true
                     });
-                // debugger
 
                 this.map.addLayer(this.vectorLayer);
 
@@ -65,8 +64,6 @@ define(['marionette', 'ol'],
             addPoint(feature) {
 
                 this.vectorSource.addFeature(feature);
-                 // debugger
-
 
             },
 
