@@ -60,8 +60,9 @@ define(['marionette', 'collections', 'iconSelect', 'msgView',
                 else {
                     let that = this;
                     this.getCoords = function (evt) {
-                        that.ui.inputCoords.val(this.getControls().array_[3].element.outerText);
-                        console.log(this.getControls().array_[3].element.outerText)
+                        that.ui.inputCoords.val(this.getControls().array_[3].element.innerText);
+                        //debugger
+                        console.log(this.getControls().array_[3].element.innerText)
                         console.log(evt.coordinate)
                         var newPoint = new window.ol.Feature({
                             geometry: new window.ol.geom.Point(evt.coordinate)

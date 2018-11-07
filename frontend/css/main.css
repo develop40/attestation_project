@@ -197,8 +197,7 @@ html, body, #wrapper, #main-region, .main-view {
 .card-buttons {
   flex: 1;
   min-width: 84px;
-  margin: 6px 0;
-  /*padding: 6px;*/ }
+  margin: 6px 0; }
 
 .card-btn {
   display: inline-block;

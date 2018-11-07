@@ -227,8 +227,6 @@ html, body, #wrapper, #main-region, .main-view {
   flex: 1;
   min-width: 84px;
   margin: 6px 0;
-  /*padding: 6px;*/
-
 }
 
 .card-btn {
@@ -342,6 +340,11 @@ html, body, #wrapper, #main-region, .main-view {
 #mouse-position {
   display: none;
 }
+
+//#exit{
+//  position: absolute;
+//  z-index: 100;
+//}
 
 /* loader */
 

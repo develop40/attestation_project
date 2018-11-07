@@ -10,11 +10,11 @@
         </div>
         <div class="card-body">
             <label>Название</label>
-                <br><input required type="text" id="name-marker">
+                <br><input type="text" id="name-marker">
             <label>Описание</label>
-                <br><input required type="text" id="description-marker">
+                <br><input type="text" id="description-marker">
             <label>Координаты</label>
-                <br><input required type="text" id="coordinates-marker">
+                <br><input type="text" id="coordinates-marker">
             <label>Тип</label>
             <div class="styled-select" id="select-region"></div>
             </p>

@@ -22,11 +22,16 @@ define(['marionette', 'collections', 'markerListView', 'msgView',
                     'mapRegion': '#map-region',
                     'msgRegion': '#msg-region',
                     'searchRegion': '#search-region',
-                    'addRegion': '#add-form-region'
+                    'addRegion': '#add-form-region',
+                },
+
+                ui: {
+                    'exitBtn': '#exit'
                 },
 
                 events: {
-                    'click #show-form-btn': 'renderAddForm'
+                    'click #show-form-btn': 'renderAddForm',
+                    'click @ui.exitBtn': 'exitToLogin'
                 },
 
                 renderMarkerList() {
@@ -67,6 +72,15 @@ define(['marionette', 'collections', 'markerListView', 'msgView',
                     var addView = new AddFormView(this.collection, this.mapView);
                     this.showChildView('addRegion', addView);
                 },
+
+                exitToLogin() {
+
+                    var cookie_date = new Date();  // Текущая дата и время
+                    cookie_date.setTime(cookie_date.getTime() - 1);
+                    let name= 'token';
+                    document.cookie = name += "=; expires=" + cookie_date.toGMTString();
+                    location.reload();
+                }
 
             });
 
