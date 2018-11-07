@@ -32,7 +32,7 @@ html, body, #wrapper, #main-region, .main-view {
   display: block;
   overflow: scroll;
   /*height: 350px;*/
-  background: #ecf0f1;
+  background: white;
   border-radius: 5px;
   box-shadow: 3px 3px 10px #333;
   padding: 15px; }
@@ -114,7 +114,7 @@ html, body, #wrapper, #main-region, .main-view {
     border: 1px solid #bbb;
     padding: 0 0 0 10px;
     font-size: 14px;
-    background: #e74c3c;
+    background: darkgray;
     border: none;
     color: white;
     font-size: 18px;
