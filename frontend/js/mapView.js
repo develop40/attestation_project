@@ -38,7 +38,7 @@ define(['marionette', 'ol'],
                         center: window.ol.proj.fromLonLat([39.7146, 47.2305]),
                         zoom: 17,
                         minZoom: 5,
-                        maxZoom: 17
+                        //maxZoom: 17
                     })
                 });
 

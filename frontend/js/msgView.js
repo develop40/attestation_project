@@ -9,6 +9,14 @@ define(['marionette', 'tpl!templates/messageView.tpl'],
                 this.messageText=msg;
             },
 
+            ui:{
+              'closeBtn': '#modal_close'
+            },
+
+            events:{
+              'click @ui.closeBtn': 'destroy'
+            },
+
             templateContext() {
                 return {
                     messageText: this.messageText
